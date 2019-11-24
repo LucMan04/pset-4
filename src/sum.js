@@ -1,28 +1,26 @@
 const readlineSync = require("readline-sync");
 
-MIN = Number.MIN_SAFE_INTEGER
-MAX = Number.MAX_SAFE_INTEGER
+const MIN = Number.MIN_SAFE_INTEGER;
+const MAX = Number.MAX_SAFE_INTEGER;
 
-let l_Bound = Number(readlineSync.question("\nLower Bound:"))
-let u_Bound = Number(readlineSync.question("Upper Bound:"))
+let lBound=Number(readlineSync.question("\nLower Bound: "));
+let uBound=Number(readlineSync.question("Upper Bound: "));
+let sum=0
 
-let answer = 0
+while (lBound > uBound ) {
+    lBound=Number(readlineSync.question("Lower Bound: "));
+    uBound=Number(readlineSync.question("Upper Bound: "));
+    }
 
-while (l_Bound > u_Bound) {
-  l_Bound = Number(readlineSync.question("Lower Bound:"))
-  u_Bound = Number(readlineSync.question("Upper Bound:"))
-
-
-if (l_Bound % 2 == 0) {
-  for (let i = l_Bound ; i <= u_Bound ; i += 2) {
-    answer = i + answer
-  }
-  console.log("\n"+answer.toLocaleString("en") + ".\n");
-}
-else {
-  for (let i = l_Bound + 1 ; i <= u_Bound ; i += 2) {
-    answer = i + answer
-  }
-  console.log("\n"+answer.toLocaleString("en") + ".\n");
+if (lBound % 2 === 0){
+  for (i = uBound; i <= uBound;i += 2) {
+    sum = i + sum;
+    }
+  }else {
+    for (i = lBound + 1 ; i <= uBound ; i += 2){
+      sum = i + sum
   }
 }
+
+sum= sum.toLocaleString("en");
+console.log("\n" + sum + ".\n");
